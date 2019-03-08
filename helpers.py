@@ -19,7 +19,7 @@ def fbpost(msg):
 try:
     graph = facebook.GraphAPI(access_token=access_token)
     #graph.put_wall_post(message=random_quote())
-    graph.put_photo(image=open("image.jpg", 'rb'),message='Caption of the image', profile_id='843586662650752')
+    graph.put_photo(image=open("image.jpg", 'rb'),message=msg, profile_id='843586662650752')
 except Exception as e:
     print(e)
     pass
