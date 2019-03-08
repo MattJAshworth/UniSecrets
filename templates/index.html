@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+	<title>Uni Secrets</title>
+
+
+	<!-- Compiled and minified CSS -->
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+
+  	<!--Import Google Icon Font-->
+  	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  	<!-- Import Jquery-->
+  	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+  	<!-- Compiled and minified JavaScript -->
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+
+    <!-- Web Icon -->
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <!-- Google Fonts -->
+  	<link href="https://fonts.googleapis.com/css?family=Coming+Soon" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Finger+Paint" rel="stylesheet">
+    
+    <script type="text/javascript">
+        window.onload = function() {
+          {% with messages=get_flashed_messages(with_categories=True) %}
+            {% if messages %}
+              {% for category, message in messages %}
+                Materialize.toast('{{ message }}', 4000);
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+        };
+      </script>
+	
+	</script>
+			
+			<script type='text/javascript'>
+				function preview_image(event) 
+				{
+				 var reader = new FileReader();
+				 reader.onload = function()
+				 {
+					var output = document.getElementById('output_image');
+					output.src = reader.result;
+				 }
+				 reader.readAsDataURL(event.target.files[0]);
+				}
+				</script>
+				<style>
+				body
+				{
+				 width:100%;
+				 margin:0 auto;
+				 padding:0px;
+				 font-family:helvetica;
+				}
+				#wrapper
+				{
+				 text-align:center;
+				 margin:10px auto;
+				 padding:0px;
+				 max-width: 100%;
+  				height: auto;
+				 display: block;
+				}
+				#output_image
+				{
+				 max-width: 100%;
+  height: auto;
+				 text-align: center;
+				}
+				</style>
+
+<script>
+	function chooseFile() {
+		 document.getElementById("fileInput").click();
+		 preview_image(event);
+	}
+</script>
+
+      <style type="text/css">
+        a:hover {
+          text-decoration: underline;
+        }
+      </style>
+
+      <style type="text/css">
+        a:hover {
+          text-decoration: underline;
+        }
+      </style>
+</head>
+<body width = "device-width">
+	<b>
+  	<div class="container" style="font-family: 'Coming Soon', cursive;">
+  		<div class="row" style="padding-top: 30px;">
+  			<div class="col s12">
+  				 <center><h3 style="font-family: 'Finger Paint', cursive;">UNI SECRETS</h3></center>
+  			</div>
+  		</div>
+  		<div class="flowtext"><center><b>Confession Page for Universities
+& Colleges! <br>
+Anonymously confess all of your <br>
+gossip, grudges, deepest darkest secrets <br>
+and opinions! <br>
+Make it embarrassing, <br>
+make it amusing, or simply just vent. <br>
+ Don’t hold back!</b></center></div>
+  		<br><br>
+		<div class="row">
+	    <form class="col s12 l8 offset-l2" method="post" action="/">
+	      <div class="row">
+	        <div class="input-field col s12">
+	          <textarea id="textarea" name="textarea" class="materialize-textarea" required></textarea>
+	          <label for="textarea">Confess here...</label>
+	        </div>
+	      </div>
+		    
+		 <center>
+						<div style="height:0px;overflow:hidden">
+								<input type="file" id="fileInput" name="fileInput" onchange="preview_image(event)">
+						 </div>
+						 <button class="btn waves-effect waves-light" type="button" onclick="chooseFile();" >Add Picture</button>
+						 <br>
+						 <br>
+				<button class="btn waves-effect waves-light" type="submit" name="action">Post Anonymously<i class="material-icons right">send</i></button>
+	  </center>
+			</form>
+		</div>
+		
+		<br>
+		<br>
+		<center>
+				<div id="wrapper">
+						<img id="output_image"/>
+					 </div>
+		</center>
+      
+  		<div class="row" style="padding-top: 15px;">
+
+			<div class="col s12">
+				<center>
+            	Created with <span class="red-text text-darken-2"> &hearts; </span>in England by <a href="https://twitter.com/MattJAshworth" target="_blank">Matt J Ashworth</a>
+              <br>
+            	</center>
+			</div>
+		</div>
+
+  	</div></b>
+</body>
+</html>
