@@ -11,8 +11,9 @@ def index():
 	"""Index page"""
 	if request.method == "POST":
 		msg = request.form.get("textarea")
+		img = request.form.get("output_image")
 		if msg:
-			fbpost(msg)
+			fbpost(msg, img)
 			flash('Successfully posted!')
 
 	return render_template('index.html')
